@@ -1,102 +1,141 @@
 //Packages needed for this application
 const inquirer = require('inquirer');
-const { writeFile } = require('fs').promises;
+const fs = require('fs');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
+const generateHTML = require('./dist/templateHTML');
+const { create } = require('domain');
+
+const myTeam = []; //empty array to store team members 
 
 // Array of questions for user input
-const promptUser = () => {
-    return inquirer.prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is the title of your project?',
-    },
-    {
-      type: 'input',
-      name: 'description',
-      message: 'Give a short description about the what, how, and why of your project',
-    },
-    {
-      type: 'input',
-      name: 'installation',
-      message: 'What are the steps required to install this project?',
-    },
-    {
-      type: 'input',
-      name: 'usage',
-      message: 'How can users use this project?',
-    },
-    {
-        type: 'input',
-        name: 'contribute',
-        message: 'How can users contribute to your project?',
+const createManager = function() { //function to create a manager 
+     inquirer.prompt ([
+      {
+          type: "input",
+          message: "What is the name of your team manager?",
+          name: "managerName"
       },
       {
-        type: 'input',
-        name: 'test',
-        message: 'If you have written any tests for your project, list examples of how to run them'
+          type: "input",
+          message: "What is the id # for your team manager?",
+          name: "managerId"
       },
-    {
-      type: 'list',
-      name: 'license',
-      message: 'Which license did you use?',
-      choices: ['MIT License','Boost Software License 1.0', 'Apache License 2.0', 'GNU General Public License v2.0', 'Other' ]
+      {
+          type: "input",
+          message: "What is the email for your team manager?",
+          name: "managerEmail"
+      },
+      {
+          type: "input",
+          message: "What is the office number for your team manager?",
+          name: "managerOfficeNumber"
+      },
+  ])
+    .then(answers => {
+    const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerofficeNumber);
+    myTeam.push(manager)
+    nextEmployee(); // to continue creating the rest of the team 
+    })
+  }
+
+  const createEngineer = function () { //function to create an Engineer
+    inquirer.prompt ([
+      {
+        type: "input",
+        message: "What is the name of this engineer?",
+        name: "engineerName"
     },
+    {
+        type: "input",
+        message: "What is the id # for this engineer?",
+        name: "engineerId"
+    },
+    {
+        type: "input",
+        message: "What is the engineer's email?",
+        name: "engineerEmail"
+    },
+    {
+        type: "input",
+        message: "What is the engineer's GitHub user name?",
+        name: "engineerGitHub"
+    },
+    ])
+    .then(answers => {
+      const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGitHub);
+      myTeam.push(engineer)
+      nextEmployee();
+    })
+  }
+
+  const createIntern = function () { //function to create an intern
+    inquirer.prompt ([
       {
-        type: 'input',
-        name: 'github',
-        message: 'Enter your github username',
+        type: "input",
+        message: "What is the name of this intern?",
+        name: "internName"
+    },
+    {
+        type: "input",
+        message: "What is the id # for this intern?",
+        name: "internID"
+    },
+    {
+        type: "input",
+        message: "What is the intern's email?",
+        name: "internEmail"
+    },
+    {
+        type: "input",
+        message: "What is the name of the school the intern is attending?",
+        name: "internSchool"
       },
+    ])
+    .then(answers => {
+      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      myTeam.push(intern)
+      nextEmployee();
+    })
+  }
+
+  const nextEmployee = function() { //function to choose if you would like to add another employee
+    inquirer.prompt ([
       {
-        type: 'input',
-        name: 'email',
-        message: 'Enter your email address',
-        },
-    ]);
-};
+        type: "list",
+        message: "Would you like to add another team member?", 
+        choices: ["Engineer", "Intern", "My team is complete!"],
+        name: "employeeOption"
+      }
+    ])
+    .then(answers => {
+      if( answers.employeeOption === 'Engineer') {
+        createEngineer();
+      } else if (answers.employeeOption === 'Intern') {
+        createIntern();
+      } else if(answers.employeeOption === 'My team is complete!') {
+        console.log('Team is Complete!');
 
-//Placeholder for README file that will be generated with user input 
-const generateProfile = ({ name, description, installation, usage, contribute, test, license, github, email }) => {
+        const userContentHTML = generateHTML(myTeam); //Placeholder for html file that will be generated with user input 
 
 
-let badge = "";
-//use the switch function to switch between the badges depending on what license the user chooses 
-switch (license) {
-    case 'MIT License':
-      badge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
-      ;
-      break;
-    case 'Boost Software License 1.0':
-      badge = '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)'
-      ;
-      break;
-    case 'Apache License 2.0':
-      badge = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
-      ;
-      break;
-    case 'GNU General Public License v2.0':
-        badge = '[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)'
-        ;
-        break;
-    default:
-      console.log("oops");
-}
+        fs.writeFile('profile.html', userContentHTML, (err) =>
+        err ? console.log(err) : console.log('Successfully created profile.html!')
+      );
+      }
+    })
+  }
 
-return `# ${name}
-
-`;}
 // Function to initialize app
-const init = () => {
-    promptUser()
-    //Function to write README file
-      .then((answers) => writeFile('profile.html', generateProfile(answers)))
-      .then(() => console.log('Successfully wrote to profile.html'))
-      .catch((err) => console.error(err));
-  };
+// const init = () => {
+//     createManager()
+//       .then((answers) => writeFile('profile.html', generateHTML(answers)))
+//       .then(() => console.log('Successfully wrote to profile.html'))
+//       .catch((err) => console.error(err));
+//   };
 
 // Function call to initialize app
-init();
+createManager();
 
 

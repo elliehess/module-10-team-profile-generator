@@ -1,18 +1,46 @@
+:root {
+    --light: white;
+    --font-size: 26px;
+}
 
 .container {
     display: flex;
     justify-content: center;
     padding: 15px;
     margin-bottom: 30px;
-    color: white;
+    color: var(--light);
     background-color: rgb(213, 67, 67);
 }
 .h1 {
-    font-size: 24 px;
+    font-size: var(--font-size);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .card {
     margin: 40px;
     padding: 5px;
+}
+
+.card-title-manager {
+    font-size: var(--font-size);
+    color: var(--light);
+    background-color: rgb(90, 14, 161);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-title-engineer {
+    font-size: var(--font-size);
+    color: var(--light);
+    background-color: rgb(152, 85, 215);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card-title-intern {
+    font-size: var(--font-size);
+    color: var(--light);
+    background-color: rgb(199, 156, 238);
+    padding: 20px;
+    margin-bottom: 20px;
 }
