@@ -1,6 +1,10 @@
 //Packages needed for this application
 const inquirer = require('inquirer');
 const { writeFile } = require('fs').promises;
+const Employee = require('./lib/employee');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
 
 // Array of questions for user input
 const promptUser = () => {
@@ -55,7 +59,7 @@ const promptUser = () => {
 };
 
 //Placeholder for README file that will be generated with user input 
-const generateREADME = ({ name, description, installation, usage, contribute, test, license, github, email }) => {
+const generateProfile = ({ name, description, installation, usage, contribute, test, license, github, email }) => {
 
 
 let badge = "";
@@ -82,61 +86,14 @@ switch (license) {
 }
 
 return `# ${name}
-${badge}
 
-## Description
-
-${description}
-
-
-## Table of Contents 
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [License](#license)
-- [Questions](#questions)
-
-## Installation
-
-${installation}
-
-## Usage
-
-${usage}
-
-## Contributing
-
-${contribute}
-
-## Tests 
-
-${test}
-
-## License
-
-${license}
-
-## Badges
-
-${badge}
-
-## Questions 
-
-Any questions? 
-Feel free to check out my work here:
-[${github}](${github})
-
-Or you can reach out to me at my email address below:
-${email}
 `;}
 // Function to initialize app
 const init = () => {
     promptUser()
     //Function to write README file
-      .then((answers) => writeFile('README.md', generateREADME(answers)))
-      .then(() => console.log('Successfully wrote to README.md'))
+      .then((answers) => writeFile('profile.html', generateProfile(answers)))
+      .then(() => console.log('Successfully wrote to profile.html'))
       .catch((err) => console.error(err));
   };
 
