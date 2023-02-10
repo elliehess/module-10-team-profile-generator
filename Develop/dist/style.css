@@ -1,0 +1,18 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    margin-bottom: 30px;
+    color: white;
+    background-color: rgb(213, 67, 67);
+}
+.h1 {
+    font-size: 24 px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.card {
+    margin: 40px;
+    padding: 5px;
+}
