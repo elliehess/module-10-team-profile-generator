@@ -49,7 +49,8 @@ My classmate Tommy offered me some help! @tnewnum
 
 Refer to the video below to run test for this application using the ' npm run test command '
 
-<img width="236" alt="Screen Shot 2022-12-08 at 4 12 43 PM" src="https://user-images.githubusercontent.com/118075347/218235953-3e2eb824-1c81-484f-a10e-a03c6607109b.png">
+<img width="845" alt="Screen Shot 2023-02-10 at 7 10 11 PM" src="https://user-images.githubusercontent.com/118075347/218236022-e932edc9-c1a5-4600-9973-8ae772115c91.png">
+
 
 [Click here for Test Video](https://drive.google.com/file/d/1JRxcMAwU4ySxR-rkElgmL4-CCoZ0UY_Z/view)
 
