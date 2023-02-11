@@ -12,7 +12,7 @@ function generateCards(myTeam) {
                 <div class="card shadow text-bg-light" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title-manager">${element.getName()}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-head-side-brain"></i>${element.getRole()}</h6>        
+                        <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-award"></i> ${element.getRole()}</h6>        
                         <ul class="list-group list-group-flush">
                         <li class="list-group-item">ID: ${element.getID()}</li>
                         <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
@@ -27,7 +27,7 @@ function generateCards(myTeam) {
                     <div class="card shadow text-bg-light" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title-engineer">${element.getName()}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><i class="fa-light fa-ruler-triangle"></i>${element.getRole()}</h6>        
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-gears"></i> ${element.getRole()}</h6>        
                             <ul class="list-group list-group-flush">
                             <li class="list-group-item">ID: ${element.getID()}</li>
                             <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
@@ -43,7 +43,7 @@ function generateCards(myTeam) {
                         <div class="card-body">
                             <h5 class="card-title-intern">${element.getName()}</h5>
                             <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-graduation-cap"></i>
-                            ${element.getRole()}</h6>        
+                             ${element.getRole()}</h6>        
                             <ul class="list-group list-group-flush">
                             <li class="list-group-item">ID: ${element.getID()}</li>
                             <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
@@ -75,7 +75,7 @@ const generateHTML = (myTeam) =>
   <body> 
   <header>
         <div class = "container">
-        <h1><i class="fa-solid fa-people-group">Team Profile</h1>
+        <h1>Team Profile</h1>
         </div>
     </header>
     
