@@ -120,20 +120,14 @@ const createManager = function() { //function to create a manager
         const userContentHTML = generateHTML(myTeam); //Placeholder for html file that will be generated with user input 
 
 
-        fs.writeFile('profile.html', userContentHTML, (err) =>
+        fs.writeFile('profile.html', userContentHTML, (err) => //write the HTML file with user input
         err ? console.log(err) : console.log('Successfully created profile.html!')
       );
       }
     })
   }
 
-// Function to initialize app
-// const init = () => {
-//     createManager()
-//       .then((answers) => writeFile('profile.html', generateHTML(answers)))
-//       .then(() => console.log('Successfully wrote to profile.html'))
-//       .catch((err) => console.error(err));
-//   };
+
 
 // Function call to initialize app
 createManager();
