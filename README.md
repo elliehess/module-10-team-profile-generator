@@ -19,7 +19,7 @@ This is a webpage generator that will display your team's basic info after a ser
 
 <img width="1295" alt="Screen Shot 2023-02-10 at 6 06 25 PM" src="https://user-images.githubusercontent.com/118075347/218233491-257633af-c9c8-4547-9e8f-2d0ffb28a886.png">
 
-
+<img width="960" alt="Screen Shot 2023-02-10 at 7 09 01 PM" src="https://user-images.githubusercontent.com/118075347/218235979-038a76be-b120-42ae-9fe9-44bdc6122ae6.png">
 [Click here for Walkthrough Video](https://drive.google.com/file/d/12kITWUe_rEaMwCOvehSNVDJ1_7CmCuJl/view)
 
 ## Installation
@@ -47,7 +47,11 @@ My classmate Tommy offered me some help! @tnewnum
 
 ## Tests 
 
-N/A
+Refer to the video below to run test for this application using the ' npm run test command '
+
+<img width="236" alt="Screen Shot 2022-12-08 at 4 12 43 PM" src="https://user-images.githubusercontent.com/118075347/218235953-3e2eb824-1c81-484f-a10e-a03c6607109b.png">
+
+[Click here for Test Video](https://drive.google.com/file/d/1JRxcMAwU4ySxR-rkElgmL4-CCoZ0UY_Z/view)
 
 ## License
 
