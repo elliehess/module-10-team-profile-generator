@@ -17,7 +17,8 @@ This is a webpage generator that will display your team's basic info after a ser
 
 ## Visuals
 
-![_Users_ellie_Desktop_bootcamp_challenges_module-10-team-profile-generator_Develop_profile html](https://user-images.githubusercontent.com/118075347/218233433-bb43cac4-e6ad-4f8f-8f15-cae67074facd.png)
+<img width="1295" alt="Screen Shot 2023-02-10 at 6 06 25 PM" src="https://user-images.githubusercontent.com/118075347/218233491-257633af-c9c8-4547-9e8f-2d0ffb28a886.png">
+
 
 [Click here for Walkthrough Video](https://drive.google.com/file/d/12kITWUe_rEaMwCOvehSNVDJ1_7CmCuJl/view)
 
