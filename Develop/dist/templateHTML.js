@@ -1,4 +1,5 @@
 //Create a function for the template HTML file for users input 
+const myTeam = [];
 
 function generateCards(myTeam) {
 
@@ -7,13 +8,13 @@ function generateCards(myTeam) {
     myTeam.forEach(element => {
         if(element.getRole() === 'Manager'){ //will create Manager card if called
             template +=
-            ` <div class =col">
-                <div class="card" style="width: 18rem;">
+            ` <div class ="col">
+                <div class="card shadow text-bg-light" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title-manager">${element.getName()}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted>${element.getRole()}</h6>        
+                        <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-head-side-brain"></i>${element.getRole()}</h6>        
                         <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ID: ${element.getId()}</li>
+                        <li class="list-group-item">ID: ${element.getID()}</li>
                         <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
                         <li class="list-group-item">Office Number: ${element.getOfficeNumber()}</li>
                         </ul>
@@ -22,13 +23,13 @@ function generateCards(myTeam) {
             </div>`
             } else if(element.getRole() === 'Engineer') { //will create Engineer card if called
               template +=
-              ` <div class =col">
-                    <div class="card" style="width: 18rem;">
+              ` <div class ="col">
+                    <div class="card shadow text-bg-light" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title-engineer">${element.getName()}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted>${element.getRole()}</h6>        
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="fa-light fa-ruler-triangle"></i>${element.getRole()}</h6>        
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${element.getId()}</li>
+                            <li class="list-group-item">ID: ${element.getID()}</li>
                             <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
                             <li class="list-group-item">Github: <a href="https://github.com/${element.getGithub()}" target="_blank">${element.getGithub()}</a></li>
                             </ul>
@@ -37,13 +38,14 @@ function generateCards(myTeam) {
                 </div>`
             } else if(element.getRole() === 'Intern'){ //will create Intern card if called
               template +=
-              ` <div class =col">
-                    <div class="card" style="width: 18rem;">
+              ` <div class ="col">
+                    <div class="card shadow text-bg-light" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title-intern">${element.getName()}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted>${element.getRole()}</h6>        
+                            <h6 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-graduation-cap"></i>
+                            ${element.getRole()}</h6>        
                             <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${element.getId()}</li>
+                            <li class="list-group-item">ID: ${element.getID()}</li>
                             <li class="list-group-item">Email: <a href="mailto:${element.getEmail()}">${element.getEmail()}</a></li>
                             <li class="list-group-item">School: ${element.getSchool()}</li>
                             </ul>
@@ -66,13 +68,14 @@ const generateHTML = (myTeam) =>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Team Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"/>
+    <script src="https://kit.fontawesome.com/30053b2406.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/Users/ellie/Desktop/bootcamp/challenges/module-10-team-profile-generator/Develop/dist/style.css"/>
   </head>
   
   <body> 
   <header>
         <div class = "container">
-        <h1>Team Profile</h1>
+        <h1><i class="fa-solid fa-people-group">Team Profile</h1>
         </div>
     </header>
     

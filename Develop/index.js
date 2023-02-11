@@ -5,7 +5,6 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const generateHTML = require('./dist/templateHTML');
-const { create } = require('domain');
 
 const myTeam = []; //empty array to store team members 
 
@@ -34,7 +33,7 @@ const createManager = function() { //function to create a manager
       },
   ])
     .then(answers => {
-    const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerofficeNumber);
+    const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
     myTeam.push(manager)
     nextEmployee(); // to continue creating the rest of the team 
     })
@@ -94,7 +93,7 @@ const createManager = function() { //function to create a manager
       },
     ])
     .then(answers => {
-      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
       myTeam.push(intern)
       nextEmployee();
     })
@@ -117,7 +116,7 @@ const createManager = function() { //function to create a manager
       } else if(answers.employeeOption === 'My team is complete!') {
         console.log('Team is Complete!');
 
-        const userContentHTML = generateHTML(myTeam); //Placeholder for html file that will be generated with user input 
+      const userContentHTML = generateHTML(myTeam); //Placeholder for html file that will be generated with user input 
 
 
         fs.writeFile('profile.html', userContentHTML, (err) => //write the HTML file with user input
