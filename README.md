@@ -43,7 +43,7 @@ When you click on the GitHub username, then that GitHub profile opens in a new t
 
 ## Credits
 
-My classmate Tommy offered me some help! @tnewnum
+My classmate Tommy offered me some help! @tnewnum & nwherman1724
 
 ## Tests 
 
